@@ -1,6 +1,6 @@
 package com.keji.codelibrary.thread.ConsumerAndProvider;
 
-import com.keji.blog.codelibrary.thread.ConsumerAndProvider.WaitAndNotify.Storage;
+import com.keji.codelibrary.thread.ConsumerAndProvider.WaitAndNotify.Storage;
 
 /**
  * Created by wb-ny291824 on 2017/8/21.

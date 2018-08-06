@@ -1,6 +1,6 @@
 package com.keji.codelibrary.thread.ConsumerAndProvider;
 
-import com.keji.blog.codelibrary.thread.ConsumerAndProvider.WaitAndNotify.Storage;
+import com.keji.codelibrary.thread.ConsumerAndProvider.WaitAndNotify.Storage;
 
 /**
  * Created by wb-ny291824 on 2017/8/21.
@@ -20,6 +20,7 @@ public class Consumer extends Thread{
     }
 
     // 线程run函数
+    @Override
     public void run()
     {
         consume(num);

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -354,6 +355,23 @@ public class StreamDemoTest {
                 .map(Transaction::getValue)
                 .reduce(Integer::min);
         reduce.ifPresent(minValue-> System.out.println(minValue));
+    }
+
+    /**
+     * 比较List<Object>对象
+     */
+    @Test
+    public void demo19() {
+        List<Person> people = Arrays.asList(new Person(1L, "张三"), new Person(1L, "张三"),new Person(2L, "李四"));
+
+
+        people = people.stream().collect(Collectors.collectingAndThen(
+                Collectors.toCollection(() -> new TreeSet<>(Comparator.comparingLong(Person::getId))),
+                ArrayList::new));
+
+        System.out.println(people);
+
+
     }
 
 

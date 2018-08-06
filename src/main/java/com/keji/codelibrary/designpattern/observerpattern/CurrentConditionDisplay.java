@@ -3,8 +3,8 @@ package com.keji.codelibrary.designpattern.observerpattern;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * @author wb-ny291824
