@@ -331,8 +331,9 @@ public class StreamDemoTest {
         System.out.println(nameString);
 
         //5.有没有交易员是在米兰工作的？
+        String name = "Milan";
         boolean b = transactions.stream().map(Transaction::getTrader)
-                .anyMatch(trader -> "Milan".equals(trader.getCity()));
+                .anyMatch(trader -> name.equals(trader.getCity()));
         System.out.println(b);
 
         //6.打印生活在剑桥的交易员的所有交易额。

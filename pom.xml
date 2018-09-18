@@ -5,7 +5,7 @@
 
 	<groupId>com.keji</groupId>
 	<artifactId>code-library</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>code-library</name>
@@ -29,6 +29,8 @@
         <commons.lang3.version>3.4</commons.lang3.version>
         <druid.version>1.0.29</druid.version>
         <mysql.version>5.1.37</mysql.version>
+		<jedis.version>2.9.0</jedis.version>
+		<fastjson.version>1.2.49</fastjson.version>
 
     </properties>
 
@@ -81,6 +83,21 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.version}</version>
         </dependency>
+
+		<!--redis-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis.version}</version>
+		</dependency>
+
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
