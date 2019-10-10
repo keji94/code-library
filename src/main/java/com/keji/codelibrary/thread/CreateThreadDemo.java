@@ -11,9 +11,9 @@ import java.util.concurrent.FutureTask;
  * 3.使用Callable和Future接口创建有返回值的线程
  *
  * @author wb-ny291824
- * @version $Id: CreateThread.java, v 0.1 2018-02-28 10:34 wb-ny291824 Exp $$
+ * @version $Id: CreateThreadDemo.java, v 0.1 2018-02-28 10:34 wb-ny291824 Exp $$
  */
-public class CreateThread {
+public class CreateThreadDemo {
     public static void main(String[] args) throws Exception{
         //创建线程1
         MyThread myThread = new MyThread();
@@ -25,14 +25,23 @@ public class CreateThread {
         //创建线程3
         MyThread3 myThread3 = new MyThread3();
 
+        Thread thread = new Thread();
+        thread.start();
+
+        FutureTask<String> futureTask = new FutureTask<>(new CallerTask());
+        Thread thread3 = new Thread(futureTask);
         //启动线程
-        myThread.start();
-        thread2.start();
-        Integer result = myThread3.call();
+        thread3.start();
 
-        //线程3的结果
-        System.out.println("result..."+result);
-
+        //任务执行完毕，返回结果
+        String result = futureTask.get();
+        System.out.println(result);
+    }
+}
+class CallerTask implements Callable<String>{
+    @Override
+    public String call() throws Exception {
+        return "hello";
     }
 }
 
@@ -49,6 +58,8 @@ class MyThread2 implements Runnable{
         System.out.println("线程2执行了");
     }
 }
+
+
 
 class MyThread3 implements Callable<Integer> {
 

@@ -7,18 +7,26 @@ import com.keji.codelibrary.thread.ConsumerAndProvider.WaitAndNotify.Storage;
  * 生产者类Producer继承线程类Thread
  */
 public class Producer extends Thread {
-    // 每次生产的产品数量
+    /**
+     * 每次生产的产品数量
+     */
     private int num;
 
-    // 所在放置的仓库
+    /**
+     * 所在放置的仓库
+     */
     private Storage storage;
 
-    // 构造函数，设置仓库
+    /**
+     * 构造函数，设置仓库
+     * @param storage 仓库
+     */
+    //
     public Producer(Storage storage) {
         this.storage = storage;
     }
 
-    // 线程run函数
+
     public void run() {
         produce(num);
     }

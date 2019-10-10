@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +13,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cglib.core.Local;
 
 /**
  * 基于Java8的时间工具类
@@ -208,6 +210,12 @@ public class DateUtil {
         return localDate2Date(localDate);
     }
 
+    public static LocalDate date2LocalDate(Date date) {
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        return instant.atZone(zoneId).toLocalDate();
+    }
+
     /**
      * LocalDate类型转为Date
      *
@@ -293,6 +301,11 @@ public class DateUtil {
         }
 
         return format(localDateTime2Date(localDateTime), pattern);
+    }
+
+    public static int comareDay(Date previousDate, Date date) {
+        Period period = Period.between(date2LocalDate(previousDate), date2LocalDate(date));
+        return period.getDays();
     }
 
     public static void main(String[] args) {
