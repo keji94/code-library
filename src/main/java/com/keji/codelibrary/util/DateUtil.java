@@ -1,5 +1,6 @@
 package com.keji.codelibrary.util;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -169,6 +170,20 @@ public class DateUtil {
         LocalDateTime localDateTime = dateTime.plusHours(hour);
         return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
     }
+    /**
+     * 增加天数
+     *
+     * @param date date
+     * @param days 要增加的天数
+     * @return new date
+     */
+    public static Date plusDays(Date date, Long days) {
+        LocalDateTime dateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+        LocalDateTime localDateTime = dateTime.plusDays(days);
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+
 
     /**
      * @return 返回当天的起始时间
@@ -303,10 +318,29 @@ public class DateUtil {
         return format(localDateTime2Date(localDateTime), pattern);
     }
 
-    public static int comareDay(Date previousDate, Date date) {
+    /**
+     * 比较天数
+     *
+     * @param previousDate 前面的时间
+     * @param date 后面的时间
+     * @return 天数
+     */
+    public static int daysBetween(Date previousDate, Date date) {
         Period period = Period.between(date2LocalDate(previousDate), date2LocalDate(date));
         return period.getDays();
     }
+    /**
+     * 比较两个时间相差多少秒
+     *
+     * @param previousDate 前面的时间
+     * @param date 后面的时间
+     * @return 秒数
+     */
+    public static long secondBetween(Date previousDate, Date date) {
+        previousDate.toInstant();
+        return Duration.between(previousDate.toInstant(), date.toInstant()).getSeconds();
+    }
+
 
     public static void main(String[] args) {
         String firstDayOfCurrentYear = getFirstDayOfCurrentYear(DATE);
