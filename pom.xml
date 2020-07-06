@@ -23,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>8</java.version>
         <google-guava.version>22.0</google-guava.version>
-        <zookeeper.version>3.4.6</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <commons.lang.version>2.6</commons.lang.version>
         <javax.version>3.1.0</javax.version>
         <commons.lang3.version>3.4</commons.lang3.version>
