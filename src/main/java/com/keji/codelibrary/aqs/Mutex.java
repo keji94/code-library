@@ -99,4 +99,9 @@ public class Mutex implements Lock {
     public boolean hashQueuedThreads() {
         return sync.hasQueuedThreads();
     }
+
+    public static void main(String[] args) {
+        Mutex mutex = new Mutex();
+        mutex.tryLock();
+    }
 }
