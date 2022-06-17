@@ -30,7 +30,7 @@
         <druid.version>1.0.29</druid.version>
         <mysql.version>5.1.37</mysql.version>
 		<jedis.version>2.9.0</jedis.version>
-		<fastjson.version>1.2.49</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 
     </properties>
 
